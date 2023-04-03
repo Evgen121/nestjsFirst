@@ -13,9 +13,7 @@ export class UserController {
       } */
 
     @Post('register')
-    createUer(@Body() dto: CreateUserDto) {
-        console.log(dto
-        )
+    createUser(@Body() dto: CreateUserDto) {
         return this.userService.createUsers(dto)
     }
 }

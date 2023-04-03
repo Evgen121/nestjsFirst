@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UserModule } from '.././user/user.module';
 import { ConfigModule, ConfigService } from '@nestjs/config/dist';
 import configurations from 'src/configurations';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { User } from './../user/modeles/user.model';
+import { User } from '../user/modeles/user.model';
+import { UserModule } from '../user/user.module';
+import { AuthModule } from './../auth/auth.module';
+import { TokenModule } from '../token/token.module';
 
 
 @Module({
@@ -16,6 +18,7 @@ import { User } from './../user/modeles/user.model';
     }),
     SequelizeModule.forRootAsync({
       imports: [ConfigModule],
+
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         dialect: 'postgres',
@@ -29,7 +32,10 @@ import { User } from './../user/modeles/user.model';
         models: [User]
       })
     }),
-    UserModule],
+    UserModule,
+    AuthModule,
+    TokenModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
