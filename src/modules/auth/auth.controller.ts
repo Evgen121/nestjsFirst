@@ -19,13 +19,13 @@ export class AuthController {
 	@ApiTags('API')
 	@ApiResponse({ status: 200, type: AuthUserResponse })
 	@Post('login')
-	login(@Body() dto: UserLoginDto): Promise<AuthUserResponse> {
+	login(@Body() dto: UserLoginDto): Promise<any> {
 		return this.authService.loginUser(dto)
 	}
 
-	@UseGuards(JwtAuthGuard)
+	/* 	@UseGuards(JwtAuthGuard)
 	@Post('test')
 	test() {
 		return true
-	}
+	} */
 }
