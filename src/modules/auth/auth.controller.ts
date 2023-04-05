@@ -4,7 +4,6 @@ import { CreateUserDto } from '../user/dto'
 import { UserLoginDto } from './dto'
 import { AuthUserResponse } from './response'
 import { ApiResponse, ApiTags } from '@nestjs/swagger'
-import { JwtAuthGuard } from 'src/guards/jwt-guard'
 
 @Controller('auth')
 export class AuthController {
@@ -19,13 +18,7 @@ export class AuthController {
 	@ApiTags('API')
 	@ApiResponse({ status: 200, type: AuthUserResponse })
 	@Post('login')
-	login(@Body() dto: UserLoginDto): Promise<any> {
+	login(@Body() dto: UserLoginDto): Promise<AuthUserResponse> {
 		return this.authService.loginUser(dto)
 	}
-
-	/* 	@UseGuards(JwtAuthGuard)
-	@Post('test')
-	test() {
-		return true
-	} */
 }
