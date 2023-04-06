@@ -1,9 +1,9 @@
 import { Controller, Post, Body, UseGuards } from '@nestjs/common'
 import { AuthService } from './auth.service'
-import { CreateUserDto } from '../user/dto'
-import { UserLoginDto } from './dto'
-import { AuthUserResponse } from './response'
+import { CreateUserDto } from '../user/dto/indexDto'
+import { AuthUserResponse } from './response/response'
 import { ApiResponse, ApiTags } from '@nestjs/swagger'
+import { UserLoginDto } from './dto/indexDto'
 
 @Controller('auth')
 export class AuthController {

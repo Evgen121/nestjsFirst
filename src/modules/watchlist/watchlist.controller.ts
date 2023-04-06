@@ -10,10 +10,10 @@ import {
 	Query,
 } from '@nestjs/common'
 import { WatchlistService } from './watchlist.service'
-import { WatchListDTO } from './dto'
 import { JwtAuthGuard } from 'src/guards/jwt-guard'
-import { CreateAssetResponse } from './response'
 import { ApiResponse, ApiTags } from '@nestjs/swagger'
+import { CreateAssetResponse } from './response/response'
+import { WatchListDTO } from './dto/indexDto'
 
 @Controller('watchlist')
 export class WatchlistController {

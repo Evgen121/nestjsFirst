@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { Watchlist } from './models/watchlist.model'
 import { InjectModel } from '@nestjs/sequelize'
-import { CreateAssetResponse } from './response'
+import { CreateAssetResponse } from './response/response'
 
 @Injectable()
 export class WatchlistService {

@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/sequelize'
 import { User } from './modeles/user.model'
 import * as bcrypt from 'bcrypt'
-import { CreateUserDto, UpdateUserDto } from './dto'
 import { Watchlist } from '../watchlist/models/watchlist.model'
+import { CreateUserDto, UpdateUserDto } from './dto/indexDto'
 
 @Injectable()
 export class UserService {
